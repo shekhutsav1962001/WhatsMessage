@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width">
+
+  <title>Whatspp</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box
+    }
+
+
+
+
+
+    body {
+      padding: 5%;
+      font: 300 1.25em/1.6 monospace;
+      background: #fff;
+      color: #000;
+    }
+
+    h1 {
+      font-family: "Helvetica Neue", sans-serif;
+      line-height: 1;
+      font-weight: 300;
+      margin-bottom: 1em;
+    }
+
+    .okay {
+      padding: 2em;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h3>send whatsapp message without save number</h3>
+
+  <div class="okay">
+
+    <script>
+
+      var userChoice = prompt("Enter whatsapp number of victim .");
+      if (!userChoice) {
+        document.write("<p>You need to enter mobile number:) refresh page and try again</p>");
+        document.write("<div class='btn btn-primary' style='margin: 20px;' onclick='location.reload();'>Refresh page</div>");
+      } else {
+        var str = userChoice
+        var patt1 = /^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$/g;
+        var result = str.match(patt1);
+        if (result == null) {
+          document.write("<p>You need to enter valid mobile number:) refresh page and try again</p>");
+          document.write("<div class='btn btn-primary' style='margin: 20px;' onclick='location.reload();'>Refresh page</div>");
+        }
+        else
+        {
+          document.writeln("Given Whatsapp number is : ")
+          document.writeln(result[0])
+          
+          if(result[0].length==13)
+          {
+            userChoice = result[0].substr(3,13)
+          }
+          else{
+            userChoice = result[0]
+          }
+          
+          var url = "http://wa.me/91"
+          url+=userChoice
+          document.write(`<br><div class='btn btn-primary' style='margin: 20px;'><a style='color:white;text-decoration:none;' href='${url}'>Send Message</a></div>`)
+          document.write(`<br><div>click on send message and then click on <strong>CONTINUE TO CHAT</strong> then choose app or whatsapp web. </div>`)
+          document.write(`<br><div>That is it.</div>`)
+          document.write("<div class='btn btn-primary' style='margin-top: 20px;' onclick='location.reload();'>Refresh page</div>");
+        }
+      }
+    </script>
+  </div>
+  
+</body>
+
+</html>
