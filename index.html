@@ -57,6 +57,7 @@
         document.write("<div class='btn btn-primary' style='margin: 20px;' onclick='location.reload();'>Refresh page</div>");
       } else {
         var str = userChoice
+        str = str.split(' ').join('');
         var patt1 = /^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$/g;
         var result = str.match(patt1);
         if (result == null) {
